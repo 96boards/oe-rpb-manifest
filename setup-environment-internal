@@ -175,7 +175,7 @@ ln -sf "${MANIFESTS}" "${OEROOT}"/layers/
 
 repo start work --all
 
-export DISTRO_DIRNAME=`echo ${DISTRO} | sed 's#[.-]#_#g'`
+DISTRO_DIRNAME=`echo ${DISTRO} | sed 's#[.-]#_#g'`
 
 cat > conf/auto.conf <<EOF
 DISTRO ?= "${DISTRO}"
