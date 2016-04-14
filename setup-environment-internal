@@ -175,7 +175,7 @@ ln -sf "${MANIFESTS}" "${OEROOT}"/layers/
 
 repo start work --all
 
-export DISTRO_DIRNAME=`echo ${DISTRO} | sed 's#[.-]#_#g'`
+DISTRO_DIRNAME=`echo ${DISTRO} | sed 's#[.-]#_#g'`
 
 cat > conf/auto.conf <<EOF
 DISTRO ?= "${DISTRO}"
@@ -235,7 +235,7 @@ EOF
         echo
         REPLY=
         while [ -z "$REPLY" ]; do
-            echo -n "Do you read the EULA ? (y/n) "
+            echo -n "Would you like to read the EULA ? (y/n) "
             read REPLY
             case "$REPLY" in
                 y|Y)
@@ -274,6 +274,10 @@ EOF
     fi
 fi
 
+GUIIMAGE=rpb-desktop-image
+if [ z"$DISTRO" = z"rpb-wayland" ]; then
+    GUIIMAGE=rpb-wayland-image
+fi
 cat <<EOF
 
 Welcome to OpenEmbedded Reference Platform Build (OE RPB)
@@ -290,6 +294,8 @@ Your build environemnt has been configured with:
 You can now run 'bitbake <target>'
 
 Some of common targets are:
+    rpb-console-image
+    $GUIIMAGE
     core-image-base
     core-image-minimal
 
