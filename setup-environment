@@ -21,4 +21,4 @@
 . .repo/manifests/setup-environment-internal
 
 trap RETURN
-unset RPBcleanup
+unset __rpb_cleanup

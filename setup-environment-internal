@@ -19,24 +19,26 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #
 
-RPBcleanup() {
-	unset MACHINETABLE MACHLAYERS DISTROTABLE DISTROLAYERS DISTRO_DIRNAME OEROOT
-	unset ITEM MANIFESTS EULA EULA_MACHINE REPLY READ_EULA
-	unset usage oldmach
+__rpb_cleanup() {
+	unset __rpb_MACHINETABLE __rpb_MACHLAYERS __rpb_DISTROTABLE
+	unset __rpb_DISTROLAYERS __rpb_DISTRO_DIRNAME __rpb_OEROOT
+	unset __rpb_ITEM __rpb_MANIFESTS __rpb_REPLY
+	unset __rpb_EULA __rpb_EULA_MACHINE __rpb_READ_EULA
+	unset __rpb_usage __rpb_oldmach
 
 	if [ -n "$BUILDDIR" ]; then
 		export BUILDDIR
 	fi
 }
-trap RPBcleanup RETURN
+trap __rpb_cleanup RETURN
 
 if [ "$(whoami)" = "root" ]; then
     echo "ERROR: do not use the BSP as root. Exiting..."
     return
 fi
 
-OEROOT=$(pwd)
-cd "$OEROOT"
+__rpb_OEROOT=$(pwd)
+cd "$__rpb_OEROOT"
 if [ -n "$ZSH_VERSION" ]; then
     setopt sh_word_split
     setopt clobber
@@ -44,7 +46,7 @@ elif [ -n "$BASH_VERSION" ]; then
     set +o noclobber
 fi
 
-usage () {
+__rpb_usage () {
     cat <<EOF
 
 Usage: [DISTRO=<DISTRO>] [MACHINE=<MACHINE>] source $BASH_SOURCE [BUILDDIR]
@@ -57,62 +59,62 @@ EOF
 }
 
 if [ $# -gt 1 ]; then
-    usage
+    __rpb_usage
     return 1
 fi
 
 # create a common list of "<machine>(<layer>)", sorted by <machine>
 # Blacklist OE-core and meta-linaro, we only want 96boards + vendor layers
-MACHLAYERS=$(find layers -print | grep "conf/machine/.*\.conf" | grep -v scripts | grep -v openembedded-core | grep -v meta-linaro | sed -e 's/\.conf//g' -e 's/layers\///' | awk -F'/conf/machine/' '{print $NF "(" $1 ")"}' | sort)
+__rpb_MACHLAYERS=$(find layers -print | grep "conf/machine/.*\.conf" | grep -v scripts | grep -v openembedded-core | grep -v meta-linaro | sed -e 's/\.conf//g' -e 's/layers\///' | awk -F'/conf/machine/' '{print $NF "(" $1 ")"}' | sort)
 
 if [ -z "${MACHINE}" ]; then
     # whiptail
     which whiptail > /dev/null 2>&1
     if [ $? -eq 0 ]; then
-        for ITEM in $MACHLAYERS; do
-            MACHINETABLE="${MACHINETABLE} $(echo $ITEM | cut -d'(' -f1) $(echo $ITEM | cut -d'(' -f2 | cut -d')' -f1) OFF\n"
+        for __rpb_ITEM in $__rpb_MACHLAYERS; do
+            __rpb_MACHINETABLE="${__rpb_MACHINETABLE} $(echo $__rpb_ITEM | cut -d'(' -f1) $(echo $__rpb_ITEM | cut -d'(' -f2 | cut -d')' -f1) OFF\n"
         done
         MACHINE=$(whiptail --title "Available Machines" --radiolist \
             "Please choose a machine" 0 0 20 \
-            ${MACHINETABLE} 3>&1 1>&2 2>&3)
+            ${__rpb_MACHINETABLE} 3>&1 1>&2 2>&3)
     fi
 
     # dialog
     if [ -z "$MACHINE" ]; then
         which dialog > /dev/null 2>&1
         if [ $? -eq 0 ]; then
-            for ITEM in $MACHLAYERS; do
-                MACHINETABLE="$MACHINETABLE $(echo $ITEM | cut -d'(' -f1) $(echo $ITEM | cut -d'(' -f2 | cut -d')' -f1)"
+            for __rpb_ITEM in $__rpb_MACHLAYERS; do
+                __rpb_MACHINETABLE="$__rpb_MACHINETABLE $(echo $__rpb_ITEM | cut -d'(' -f1) $(echo $__rpb_ITEM | cut -d'(' -f2 | cut -d')' -f1)"
             done
-            MACHINE=$(dialog --title "Available Machines" --menu "Please choose a machine" 0 0 20 $MACHINETABLE 3>&1 1>&2 2>&3)
+            MACHINE=$(dialog --title "Available Machines" --menu "Please choose a machine" 0 0 20 $__rpb_MACHINETABLE 3>&1 1>&2 2>&3)
         fi
     fi
 fi
 
 # create a common list of "<distro>(<layer>)", sorted by <distro>
 # Blacklist OE-core and meta-linaro, we only want 96boards + vendor layers
-DISTROLAYERS=$(find layers -print | grep "conf/distro/.*\.conf" | grep -v scripts | grep -v openembedded-core | grep -v meta-linaro | sed -e 's/\.conf//g' -e 's/layers\///' | awk -F'/conf/distro/' '{print $NF "(" $1 ")"}' | sort)
+__rpb_DISTROLAYERS=$(find layers -print | grep "conf/distro/.*\.conf" | grep -v scripts | grep -v openembedded-core | grep -v meta-linaro | sed -e 's/\.conf//g' -e 's/layers\///' | awk -F'/conf/distro/' '{print $NF "(" $1 ")"}' | sort)
 
 if [ -z "${DISTRO}" ]; then
     # whiptail
     which whiptail > /dev/null 2>&1
     if [ $? -eq 0 ]; then
-        for ITEM in $DISTROLAYERS; do
-            DISTROTABLE="${DISTROTABLE} $(echo $ITEM | cut -d'(' -f1) $(echo $ITEM | cut -d'(' -f2 | cut -d')' -f1) OFF\n"
+        for __rpb_ITEM in $__rpb_DISTROLAYERS; do
+            __rpb_DISTROTABLE="${__rpb_DISTROTABLE} $(echo $__rpb_ITEM | cut -d'(' -f1) $(echo $__rpb_ITEM | cut -d'(' -f2 | cut -d')' -f1) OFF\n"
         done
         DISTRO=$(whiptail --title "Available Distributions" --radiolist \
             "Please choose a distribution" 0 0 20 \
-            ${DISTROTABLE} 3>&1 1>&2 2>&3)
+            ${__rpb_DISTROTABLE} 3>&1 1>&2 2>&3)
     fi
 
     # dialog
     if [ -z "$DISTRO" ]; then
         which dialog > /dev/null 2>&1
         if [ $? -eq 0 ]; then
-            for ITEM in $DISTROLAYERS; do
-                DISTROTABLE="$DISTROTABLE $(echo $ITEM | cut -d'(' -f1) $(echo $ITEM | cut -d'(' -f2 | cut -d')' -f1)"
+            for __rpb_ITEM in $__rpb_DISTROLAYERS; do
+                __rpb_DISTROTABLE="$__rpb_DISTROTABLE $(echo $__rpb_ITEM | cut -d'(' -f1) $(echo $__rpb_ITEM | cut -d'(' -f2 | cut -d')' -f1)"
             done
-            DISTRO=$(dialog --title "Available Distributions" --menu "Please choose a distribution" 0 0 20 $DISTROTABLE 3>&1 1>&2 2>&3)
+            DISTRO=$(dialog --title "Available Distributions" --menu "Please choose a distribution" 0 0 20 $__rpb_DISTROTABLE 3>&1 1>&2 2>&3)
         fi
     fi
 
@@ -129,8 +131,8 @@ if [ -z "$MACHINE" ]; then
     echo "    MACHINE=<your-machine> . ./setup-environment"
     echo ""
     echo "Press <ENTER> to see a list of your choices"
-    read
-    echo $MACHLAYERS | sed -e 's/(/ (/g' | sed -e 's/)/)\n/g' | sed -e 's/^ */\t/g'
+    read __rpb_REPLY
+    echo $__rpb_MACHLAYERS | sed -e 's/(/ (/g' | sed -e 's/)/)\n/g' | sed -e 's/^ */\t/g'
     return
 fi
 
@@ -138,19 +140,19 @@ if [ -z "${SDKMACHINE}" ]; then
     SDKMACHINE='x86_64'
 fi
 
-MANIFESTS="${OEROOT}"/.repo/manifests
+__rpb_MANIFESTS="${__rpb_OEROOT}"/.repo/manifests
 
 # we can be called with only 1 parameter max, <build> folder, or default to build-$distro
 BUILDDIR=build-$DISTRO
 if [ $# -eq 1 ]; then
     BUILDDIR=$1
 fi
-BUILDDIR=$OEROOT/$BUILDDIR
+BUILDDIR=$__rpb_OEROOT/$BUILDDIR
 
 # Clean up PATH, because if it includes tokens to current directories somehow,
 # wrong binaries can be used instead of the expected ones during task execution
 export PATH=$(echo ${PATH} | sed 's/\(:.\|:\)*:/:/g;s/^.\?://;s/:.\?$//')
-export PATH="${OEROOT}"/layers/openembedded-core/scripts:"${OEROOT}"/bitbake/bin:"${OEROOT}"/.repo/repo:"${PATH}"
+export PATH="${__rpb_OEROOT}"/layers/openembedded-core/scripts:"${__rpb_OEROOT}"/bitbake/bin:"${__rpb_OEROOT}"/.repo/repo:"${PATH}"
 #remove duplicate path entries
 export PATH=$(echo $PATH | awk -F: '{for (i=1;i<=NF;i++) { if ( !x[$i]++ ) printf("%s:",$i); }}' | sed 's/:$//')
 # Make sure Bitbake doesn't filter out the following variables from our
@@ -159,9 +161,9 @@ export BB_ENV_EXTRAWHITE="MACHINE DISTRO TCLIBC TCMODE GIT_PROXY_COMMAND http_pr
 
 mkdir -p ${BUILDDIR}/conf && cd ${BUILDDIR}
 if [ -f "conf/auto.conf" ]; then
-    oldmach=`egrep "^MACHINE" "conf/auto.conf" | sed -e 's%^MACHINE ?= %%' | sed -e 's/^"//'  -e 's/"$//'`
+    __rpb_oldmach=`egrep "^MACHINE" "conf/auto.conf" | sed -e 's%^MACHINE ?= %%' | sed -e 's/^"//'  -e 's/"$//'`
 fi
-if [ -e conf/checksum -a "${MACHINE}" = "$oldmach" ]
+if [ -e conf/checksum -a "${MACHINE}" = "$__rpb_oldmach" ]
 then
     sha512sum --quiet -c conf/checksum > /dev/null 2>&1
     if [ $? -eq 0 ]
@@ -171,17 +173,17 @@ then
 fi
 
 # evaluate new checksum and regenerate the conf files
-sha512sum "${MANIFESTS}"/setup-environment-internal 2>&1 > conf/checksum
+sha512sum "${__rpb_MANIFESTS}"/setup-environment-internal 2>&1 > conf/checksum
 
-ln -sf "${MANIFESTS}"/conf/local.conf conf/local.conf
-ln -sf "${MANIFESTS}"/conf/bblayers.conf conf/bblayers.conf
-ln -sf "${MANIFESTS}"/README.md README.md
+ln -sf "${__rpb_MANIFESTS}"/conf/local.conf conf/local.conf
+ln -sf "${__rpb_MANIFESTS}"/conf/bblayers.conf conf/bblayers.conf
+ln -sf "${__rpb_MANIFESTS}"/README.md README.md
 
-ln -sf "${MANIFESTS}" "${OEROOT}"/layers/
+ln -sf "${__rpb_MANIFESTS}" "${__rpb_OEROOT}"/layers/
 
 repo start work --all
 
-DISTRO_DIRNAME=`echo ${DISTRO} | sed 's#[.-]#_#g'`
+__rpb_DISTRO_DIRNAME=`echo ${DISTRO} | sed 's#[.-]#_#g'`
 
 cat > conf/auto.conf <<EOF
 DISTRO ?= "${DISTRO}"
@@ -194,12 +196,12 @@ if [ ! -e conf/site.conf ]; then
 SCONF_VERSION = "1"
 
 # Where to store sources
-DL_DIR = "${OEROOT}/downloads"
+DL_DIR = "${__rpb_OEROOT}/downloads"
 
 # Where to save shared state
-SSTATE_DIR = "${OEROOT}/sstate-cache"
+SSTATE_DIR = "${__rpb_OEROOT}/sstate-cache"
 
-TMPDIR = "${BUILDDIR}/tmp-${DISTRO_DIRNAME}"
+TMPDIR = "${BUILDDIR}/tmp-${__rpb_DISTRO_DIRNAME}"
 
 # Go through the Firewall
 #HTTP_PROXY        = "http://${PROXYHOST}:${PROXYPORT}/"
@@ -216,18 +218,18 @@ fi
 # If the env variable EULA_$MACHINE is set it is used by default,
 # without prompting the user.
 # FIXME: there is a potential issue if the same $MACHINE is set in more than one layer.. but we should assert that earlier
-EULA=$(find ../layers -print | grep "conf/eula/$MACHINE" | grep -v scripts | grep -v openembedded-core | grep -v meta-linaro || true)
+__rpb_EULA=$(find ../layers -print | grep "conf/eula/$MACHINE" | grep -v scripts | grep -v openembedded-core | grep -v meta-linaro || true)
 
-if [ -n "$EULA" ]; then
+if [ -n "$__rpb_EULA" ]; then
 
     # remove '-' since we are constructing a bash variable name here
-    EULA_MACHINE="EULA_$(echo $MACHINE | sed 's/-//g')"
+    __rpb_EULA_MACHINE="EULA_$(echo $MACHINE | sed 's/-//g')"
 
     # NOTE: indirect reference / dynamic variable
-    if [ -n "${!EULA_MACHINE}" ]; then
+    if [ -n "${!__rpb_EULA_MACHINE}" ]; then
         # the EULA_$MACHINE variable is set in the environment, so we just configure
         # ACCEPT_EULA_$MACHINE in auto.conf
-        echo "ACCEPT_EULA_$MACHINE = \"${!EULA_MACHINE}\"" >> conf/auto.conf
+        echo "ACCEPT_EULA_$MACHINE = \"${!__rpb_EULA_MACHINE}\"" >> conf/auto.conf
     else
         # so we need to ask user if he/she accepts the EULA:
         cat <<EOF
@@ -239,31 +241,31 @@ in your images, you need to read and accept the following...
 EOF
 
         echo
-        REPLY=
-        while [ -z "$REPLY" ]; do
+        __rpb_REPLY=
+        while [ -z "$__rpb_REPLY" ]; do
             echo -n "Would you like to read the EULA ? (y/n) "
-            read REPLY
-            case "$REPLY" in
+            read __rpb_REPLY
+            case "$__rpb_REPLY" in
                 y|Y)
-                    READ_EULA=1
+                    __rpb_READ_EULA=1
                     ;;
                 n|N)
-                    READ_EULA=0
+                    __rpb_READ_EULA=0
                     ;;
                 *)
-                    REPLY=
+                    __rpb_REPLY=
                     ;;
             esac
         done
 
-        if [ "$READ_EULA" == 1 ]; then
-            more -d ${EULA}
+        if [ "$__rpb_READ_EULA" == 1 ]; then
+            more -d ${__rpb_EULA}
             echo
-            REPLY=
-            while [ -z "$REPLY" ]; do
+            __rpb_REPLY=
+            while [ -z "$__rpb_REPLY" ]; do
                 echo -n "Do you accept the EULA you just read? (y/n) "
-                read REPLY
-                case "$REPLY" in
+                read __rpb_REPLY
+                case "$__rpb_REPLY" in
                     y|Y)
                         echo "EULA has been accepted."
                         echo "ACCEPT_EULA_$MACHINE = \"1\"" >> conf/auto.conf
@@ -272,7 +274,7 @@ EOF
                         echo "EULA has not been accepted."
                         ;;
                     *)
-                        REPLY=
+                        __rpb_REPLY=
                         ;;
                 esac
             done
