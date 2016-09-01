@@ -19,3 +19,6 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #
 . .repo/manifests/setup-environment-internal
+
+trap RETURN
+unset RPBcleanup
