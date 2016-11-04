@@ -7,18 +7,18 @@
   <remote fetch="http://git.shr-project.org" name="shr"/>
   <remote fetch="http://git.yoctoproject.org" name="yocto"/>
   
-  <default revision="jethro" sync-j="4"/>
+  <default revision="krogoth" sync-j="4"/>
   
-  <project name="96boards/meta-96boards" path="layers/meta-96boards" remote="github" revision="9eb5115b1b9086566df3331a2a3001026de49d16" upstream="master"/>
-  <project name="96boards/meta-rpb" path="layers/meta-rpb" remote="github" revision="a95c9f922ff7f7beb595b99dcbbe84f93751ed60" upstream="master"/>
-  <project name="OSSystems/meta-browser" path="layers/meta-browser" remote="github" revision="e114d625d4bd23a52cc1108a45d96ffd8dc0ab7f" upstream="jethro"/>
-  <project name="meta-qt5/meta-qt5" path="layers/meta-qt5" remote="github" revision="ea37a0bc987aa9484937ad68f762b4657c198617" upstream="jethro"/>
-  <project name="ndechesne/meta-qcom" path="layers/meta-qcom" remote="github" revision="6d4321ab11b1268cd6ef405f3703965288e4b51a" upstream="jethro">
+  <project name="96boards/meta-96boards" path="layers/meta-96boards" remote="github" revision="5a14d95f47ea190bf78efeb0d952d1ff205ba522" upstream="master"/>
+  <project name="96boards/meta-rpb" path="layers/meta-rpb" remote="github" revision="86f76e70f4497d072ffa08fbf18742f79d7cbb7e" upstream="master"/>
+  <project name="OSSystems/meta-browser" path="layers/meta-browser" remote="github" revision="1b4f1e588b1901d8919ea2362b0fcba37c5023e0"/>
+  <project name="meta-qt5/meta-qt5" path="layers/meta-qt5" remote="github" revision="1ec776771f5f09c97917d3839d8140f9a7668c4a" upstream="krogoth"/>
+  <project name="ndechesne/meta-qcom" path="layers/meta-qcom" remote="github" revision="4f17d6dcdc362b21c2de297b5ba8e5316a5c2880" upstream="krogoth">
     <linkfile dest="setup-environment" src="../../.repo/manifests/setup-environment"/>
   </project>
-  <project name="openembedded/bitbake" path="bitbake" remote="github" revision="0e9d8d63ddb35d181d4e470585d1e4a4c646cd00" upstream="1.28"/>
-  <project name="openembedded/meta-backports" path="layers/meta-backports" remote="linaro" revision="7630f48291f397c064ff4b2a7c67215e0700f11d" upstream="jethro"/>
-  <project name="openembedded/meta-linaro" path="layers/meta-linaro" remote="linaro" revision="8e57986f9ea50afc9c834aa208422e9a124a5c4d" upstream="jethro"/>
-  <project name="openembedded/meta-openembedded" path="layers/meta-openembedded" remote="github" revision="8ab04afbffb4bc5184cfe0655049de6f44269990" upstream="jethro"/>
-  <project name="openembedded/openembedded-core" path="layers/openembedded-core" remote="github" revision="1f4bfa33073584c25396d74f3929f263f3df188b" upstream="jethro"/>
+  <project name="openembedded/bitbake" path="bitbake" remote="github" revision="e64564bcaa7331f505baa5209fef1f50dfda1469" upstream="1.30"/>
+  <project name="openembedded/meta-backports" path="layers/meta-backports" remote="linaro" revision="b3a54ebaa841e414a1cb028bc72be56ccf8abf85" upstream="krogoth"/>
+  <project name="openembedded/meta-linaro" path="layers/meta-linaro" remote="linaro" revision="85faf6c6824597e7fd9e2d35fc9d8da2e9f90bc7" upstream="krogoth"/>
+  <project name="openembedded/meta-openembedded" path="layers/meta-openembedded" remote="github" revision="895b25b387cae428c38990f4d2747603ee9dc92d" upstream="krogoth"/>
+  <project name="openembedded/openembedded-core" path="layers/openembedded-core" remote="github" revision="2a9f4823483b6f5decc6d504858f06f66ab9e06c" upstream="krogoth"/>
 </manifest>
