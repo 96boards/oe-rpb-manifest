@@ -16,7 +16,7 @@ $ chmod a+x ~/bin/repo
 ```
 Run repo init to bring down the latest version of Repo with all its most recent bug fixes. You must specify a URL for the manifest, which specifies where the various repositories included in the Android source will be placed within your working directory. To check out the current branch, specify it with -b:
 ```
-$ repo init -u https://github.com/96boards/oe-rpb-manifest.git -b jethro
+$ repo init -u https://github.com/96boards/oe-rpb-manifest.git -b morty
 ```
 When prompted, configure Repo with your real name and email address.
 
@@ -44,20 +44,19 @@ MACHINE values can be:
 * hikey
 
 DISTRO values can be:
-* rpb-x11
+* rpb
 * rpb-wayland
 
 ```
 $ . setup-environment
 $ MACHINE=<machine> DISTRO=<distro> bitbake <image>
 ```
-e.g. MACHINE=hikey DISTRO=rpb-x11 bitbake core-image-minimal
+e.g. MACHINE=hikey DISTRO=rpb bitbake core-image-minimal
 
 Creating a local topic branch
 -----------------------------
 
-Setup will already create a branch called $USER/work
-but if you need to create local branches for all repos which then can be done e.g.
+If you need to create local branches for all repos which then can be done e.g.
 ```
 $ ~/bin/repo start myangstrom --all
 ```
@@ -66,8 +65,7 @@ Where 'myangstrom' is the name of branch you choose
 Updating the sandbox
 --------------------
 
-Setup will do this as well but in between if you need to bring changes from upstream then
-use following commands
+If you need to bring changes from upstream then use following commands
 ```
 $ repo sync
 ```
@@ -77,7 +75,7 @@ $ repo rebase
 ```
 If you find any bugs please report them here
 
-https://github.com/96booards/oe-rpb-manifest/issues
+https://github.com/96boards/oe-rpb-manifest/issues
 
 If you have questions or feedback, please subscribe to
 
