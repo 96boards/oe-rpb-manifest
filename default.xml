@@ -1,35 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-
-  <default revision="morty" sync-j="4"/>
-
-  <remote fetch="http://git.yoctoproject.org" name="yocto"/>
-  <remote fetch="git://git.openembedded.org" name="oe"/>
-  <remote fetch="https://github.com" name="github"/>
   <remote fetch="https://bitbucket.org" name="bitbucket"/>
   <remote fetch="https://github.com" name="github"/>
   <remote fetch="http://git.linaro.org" name="linaro"/>
   <remote fetch="git://git.openembedded.org" name="oe"/>
   <remote fetch="http://git.shr-project.org" name="shr"/>
-
-  <project remote="linaro" name="openembedded/meta-linaro" path="layers/meta-linaro"/>
-  <project remote="linaro" name="openembedded/meta-backports" path="layers/meta-backports"/>
-
-  <project remote="github" name="openembedded/openembedded-core" path="layers/openembedded-core"/>
-  <project remote="github" name="openembedded/meta-openembedded" path="layers/meta-openembedded"/>
-  <project remote="github" name="openembedded/bitbake" path="bitbake" revision="1.32"/>
-  <project remote="github" name="OSSystems/meta-browser" path="layers/meta-browser" revision="1b4f1e588b1901d8919ea2362b0fcba37c5023e0" />
-  <project remote="github" name="meta-qt5/meta-qt5" path="layers/meta-qt5"/>
-  <project remote="github" name="96boards/meta-96boards" path="layers/meta-96boards"/>
-  <project remote="github" name="96boards/meta-rpb" path="layers/meta-rpb"/>
-  <project remote="github" name="ndechesne/meta-qcom" path="layers/meta-qcom"/>
-  <project remote="github" name="cpriouzeau/meta-st-cannes2" path="layers/meta-st-cannes2"/>
-  <project remote="yocto" name="git/meta-ti" path="layers/meta-ti">
-      <linkfile dest="setup-environment" src="../../.repo/manifests/setup-environment"/>
+  <remote fetch="http://git.yoctoproject.org" name="yocto"/>
+  
+  <default revision="morty" sync-j="4"/>
+  
+  <project name="96boards/meta-96boards" path="layers/meta-96boards" remote="github" revision="f7361eaec85186aff2d023361e17d6db547f7f0e" upstream="morty"/>
+  <project name="96boards/meta-rpb" path="layers/meta-rpb" remote="github" revision="e704ddcc5c2e9d59ff1253d57810721844b05637" upstream="morty"/>
+  <project name="OSSystems/meta-browser" path="layers/meta-browser" remote="github" revision="1b4f1e588b1901d8919ea2362b0fcba37c5023e0"/>
+  <project name="cpriouzeau/meta-st-cannes2" path="layers/meta-st-cannes2" remote="github" revision="a0e5515a0ea343bfd1edbf998c81f40ad8fb4677" upstream="morty"/>
+  <project name="git/meta-ti" path="layers/meta-ti" remote="yocto" revision="6be0cfe030b86da734b0931ab055a7fea5b49dfa" upstream="morty">
+    <linkfile dest="setup-environment" src="../../.repo/manifests/setup-environment"/>
   </project>
-  <project name="openembedded/bitbake" path="bitbake" remote="github" revision="e64564bcaa7331f505baa5209fef1f50dfda1469" upstream="1.30"/>
-  <project name="openembedded/meta-backports" path="layers/meta-backports" remote="linaro" revision="b3a54ebaa841e414a1cb028bc72be56ccf8abf85" upstream="krogoth"/>
-  <project name="openembedded/meta-linaro" path="layers/meta-linaro" remote="linaro" revision="85faf6c6824597e7fd9e2d35fc9d8da2e9f90bc7" upstream="krogoth"/>
-  <project name="openembedded/meta-openembedded" path="layers/meta-openembedded" remote="github" revision="895b25b387cae428c38990f4d2747603ee9dc92d" upstream="krogoth"/>
-  <project name="openembedded/openembedded-core" path="layers/openembedded-core" remote="github" revision="2a9f4823483b6f5decc6d504858f06f66ab9e06c" upstream="krogoth"/>
+  <project name="meta-qt5/meta-qt5" path="layers/meta-qt5" remote="github" revision="4020adfd5198cf581eb20fbfd7d5b4c1a42fcdf4" upstream="morty"/>
+  <project name="ndechesne/meta-qcom" path="layers/meta-qcom" remote="github" revision="4be62c00c8368e1bb87fec688d1a6beb8d0c07d2" upstream="morty"/>
+  <project name="openembedded/bitbake" path="bitbake" remote="github" revision="a240f5ff71092cb209c44a071cd6fa07756ccfa0" upstream="1.32"/>
+  <project name="openembedded/meta-backports" path="layers/meta-backports" remote="linaro" revision="d164012c1d3da803cc5c18331e22f33e235a6e17" upstream="morty"/>
+  <project name="openembedded/meta-linaro" path="layers/meta-linaro" remote="linaro" revision="d4639deb43bb6c62ac06aaf951245edc9b9f410e" upstream="morty"/>
+  <project name="openembedded/meta-openembedded" path="layers/meta-openembedded" remote="github" revision="1efa5d623bc64659b57389e50be2568b1355d5f7" upstream="morty"/>
+  <project name="openembedded/openembedded-core" path="layers/openembedded-core" remote="github" revision="79f821fb6c1b425ca5cb5e6db360c2743d6c989e" upstream="morty"/>
 </manifest>
