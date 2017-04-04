@@ -147,7 +147,9 @@ BUILDDIR=build-$DISTRO
 if [ $# -eq 1 ]; then
     BUILDDIR=$1
 fi
+if [[ ! "${BUILDDIR}" = /* ]]; then
 BUILDDIR=$OEROOT/$BUILDDIR
+fi
 
 # Clean up PATH, because if it includes tokens to current directories somehow,
 # wrong binaries can be used instead of the expected ones during task execution
@@ -250,6 +252,9 @@ SDKMACHINE ?= "${SDKMACHINE}"
 # Extra options that can be changed by the user
 INHERIT += "rm_work"
 EOF
+cat > conf/oeroot.conf <<EOF
+OEROOT ?= "${OEROOT}"
+EOF
 if [ ! -e conf/site.conf ]; then
     cat > conf/site.conf <<_EOF
 
@@ -278,7 +283,7 @@ fi
 # If the env variable EULA_$MACHINE is set it is used by default,
 # without prompting the user.
 # FIXME: there is a potential issue if the same $MACHINE is set in more than one layer.. but we should assert that earlier
-EULA=$(find ../layers -path "*/conf/eula/$MACHINE" -print | grep -v scripts | grep -v openembedded-core | grep -v meta-linaro || true)
+EULA=$(find ${OEROOT}/layers -path "*/conf/eula/$MACHINE" -print | grep -v scripts | grep -v openembedded-core | grep -v meta-linaro || true)
 
 if [ -n "$EULA" ]; then
 
