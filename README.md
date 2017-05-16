@@ -1,5 +1,5 @@
-oe-rpb-manifest
-=================
+oe-rpb-manifest=
+================
 
 OE RPB Repo manifest repository
 
@@ -16,7 +16,7 @@ chmod a+x ~/bin/repo
 ```
 Run repo init to bring down the latest version of Repo with all its most recent bug fixes. You must specify a URL for the manifest, which specifies where the various repositories included in the Android source will be placed within your working directory. To check out the current branch, specify it with -b:
 ```
-repo init -u https://github.com/96boards/oe-rpb-manifest.git -b master
+repo init -u https://github.com/96boards/oe-rpb-manifest.git -b pyro
 ```
 When prompted, configure Repo with your real name and email address.
 

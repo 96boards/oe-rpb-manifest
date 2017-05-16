@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 
-  <default revision="master" sync-j="4"/>
+  <default revision="pyro" sync-j="4"/>
 
   <remote fetch="http://git.yoctoproject.org" name="yocto"/>
   <remote fetch="git://git.openembedded.org" name="oe"/>
@@ -11,10 +11,10 @@
   <remote fetch="http://git.shr-project.org" name="shr"/>
 
   <project remote="linaro" name="openembedded/meta-linaro" path="layers/meta-linaro"/>
-
+  <project remote="linaro" name="openembedded/meta-backports" path="layers/meta-backports"/>
   <project remote="github" name="openembedded/openembedded-core" path="layers/openembedded-core"/>
   <project remote="github" name="openembedded/meta-openembedded" path="layers/meta-openembedded"/>
-  <project remote="github" name="openembedded/bitbake" path="bitbake"/>
+  <project remote="github" name="openembedded/bitbake" path="bitbake" revision="1.34"/>
   <project remote="github" name="OSSystems/meta-browser" path="layers/meta-browser"/>
   <project remote="github" name="meta-qt5/meta-qt5" path="layers/meta-qt5"/>
   <project remote="github" name="96boards/meta-96boards" path="layers/meta-96boards"/>
