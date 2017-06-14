@@ -21,12 +21,9 @@
   <project remote="github" name="96boards/meta-96boards" path="layers/meta-96boards"/>
   <project remote="github" name="96boards/meta-rpb" path="layers/meta-rpb"/>
   <project remote="github" name="ndechesne/meta-qcom" path="layers/meta-qcom"/>
-  <project remote="github" name="cpriouzeau/meta-st-cannes2" path="layers/meta-st-cannes2"/>
 
-  <project remote="yocto" name="git/meta-virtualization" path="layers/meta-virtualization"/>
-  <project remote="yocto" name="git/meta-ti" path="layers/meta-ti">
+  <project remote="yocto" name="git/meta-virtualization" path="layers/meta-virtualization">
       <linkfile dest="setup-environment" src="../../.repo/manifests/setup-environment"/>
   </project>
-
 
 </manifest>
