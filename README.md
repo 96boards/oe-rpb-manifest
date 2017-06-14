@@ -1,7 +1,7 @@
 oe-rpb-manifest
 =================
 
-OE RPB Repo manifest repository
+OE QCOM RPB Repo manifest repository
 
 These are the setup scripts for the OE RPB buildsystem. If you want to (re)build packages or images for OE RPB, this is the thing to use.
 The OE RPB buildsystem is using various components from the Yocto Project, most importantly the Openembedded buildsystem, the bitbake task executor and various application and BSP layers.
@@ -16,7 +16,7 @@ chmod a+x ~/bin/repo
 ```
 Run repo init to bring down the latest version of Repo with all its most recent bug fixes. You must specify a URL for the manifest, which specifies where the various repositories included in the Android source will be placed within your working directory. To check out the current branch, specify it with -b:
 ```
-repo init -u https://github.com/96boards/oe-rpb-manifest.git -b morty
+repo init -u https://github.com/96boards/oe-rpb-manifest.git -b qcom/morty
 ```
 When prompted, configure Repo with your real name and email address.
 
@@ -41,7 +41,8 @@ Setup Environment
 
 MACHINE values can be:
 * dragonboard-410c
-* hikey
+* dragonboard-820c
+* ...
 
 DISTRO values can be:
 * rpb
@@ -51,7 +52,7 @@ DISTRO values can be:
 . setup-environment
 MACHINE=<machine> DISTRO=<distro> bitbake <image>
 ```
-e.g. MACHINE=hikey DISTRO=rpb bitbake core-image-minimal
+e.g. MACHINE=dragonboard-410c DISTRO=rpb bitbake core-image-minimal
 
 Creating a local topic branch
 -----------------------------
