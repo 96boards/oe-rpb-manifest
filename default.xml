@@ -17,7 +17,7 @@
   <project remote="github" name="openembedded/bitbake" path="bitbake" revision="1.34"/>
   <project remote="github" name="96boards/meta-96boards" path="layers/meta-96boards"/>
   <project remote="github" name="ndechesne/meta-qcom" path="layers/meta-qcom"/>
-  <project remote="github" name="meta-qt5/meta-qt5" path="layers/meta-qt5" revision="master"/>
+  <project remote="github" name="meta-qt5/meta-qt5" path="layers/meta-qt5"/>
   <project remote="github" name="OSSystems/meta-browser" path="layers/meta-browser" revision="master"/>
 
   <project remote="yocto" name="git/meta-virtualization" path="layers/meta-virtualization"/>
