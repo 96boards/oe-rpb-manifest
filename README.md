@@ -1,7 +1,6 @@
-oe-rpb-manifest
-=================
+# OpenEmbedded Reference Platform Build (OE RPB)
 
-OE RPB Repo manifest repository
+## oe-rpb-manifest repository
 
 These are the setup scripts for the OE RPB buildsystem. If you want to (re)build packages or images for OE RPB, this is the thing to use.
 The OE RPB buildsystem is using various components from the Yocto Project, most importantly the Openembedded buildsystem, the bitbake task executor and various application and BSP layers.
@@ -36,8 +35,8 @@ More rarely, Linux clients experience connectivity issues, getting stuck in the 
 sudo sysctl -w net.ipv4.tcp_window_scaling=0
 repo sync -j1
 ```
-Setup Environment
------------------
+
+## Setup Environment
 
 MACHINE values can be:
 * dragonboard-410c
@@ -53,8 +52,7 @@ MACHINE=<machine> DISTRO=<distro> bitbake <image>
 ```
 e.g. MACHINE=hikey DISTRO=rpb bitbake core-image-minimal
 
-Creating a local topic branch
------------------------------
+## Creating a local topic branch
 
 If you need to create local branches for all repos which then can be done e.g.
 ```
@@ -62,8 +60,7 @@ If you need to create local branches for all repos which then can be done e.g.
 ```
 Where 'myangstrom' is the name of branch you choose
 
-Updating the sandbox
---------------------
+## Updating the sandbox
 
 If you need to bring changes from upstream then use following commands
 ```
@@ -81,9 +78,10 @@ If you have questions or feedback, please subscribe to
 
 https://lists.linaro.org/mailman/listinfo/openembedded
 
-Maintainers
--------------------------
+## Maintainers
 
 * Koen Kooi <mailto:koen.kooi@linaro.org>
 * Nicolas Dechesne <nicolas.dechesne@linaro.org>
 * Fathi Boudra <mailto:fathi.boudra@linaro.org>
+
+
