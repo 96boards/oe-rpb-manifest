@@ -7,7 +7,7 @@
   <remote fetch="http://git.shr-project.org" name="shr"/>
   <remote fetch="http://git.yoctoproject.org" name="yocto"/>
   
-  <default revision="master" sync-j="4"/>
+  <default revision="rocko" sync-j="4"/>
   
   <project name="96boards/meta-96boards" path="layers/meta-96boards" remote="github"/>
   <project name="96boards/meta-rpb" path="layers/meta-rpb" remote="github"/>
