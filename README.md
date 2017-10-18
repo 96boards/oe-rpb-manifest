@@ -190,7 +190,7 @@ If you need to bring changes from upstream then use following commands
 ```
 repo sync
 ```
-Rease your local committed changes
+Rebase your local committed changes
 ```
 repo rebase
 ```
