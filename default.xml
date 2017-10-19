@@ -10,8 +10,7 @@
   <default revision="rocko" sync-j="1"/>
   
   <project name="96boards/meta-96boards" path="layers/meta-96boards" remote="github"/>
-  <project name="96boards/meta-rpb" path="layers/meta-rpb" remote="github"/>
-  <project name="git/meta-ti" path="layers/meta-ti" remote="yocto">
+  <project name="96boards/meta-rpb" path="layers/meta-rpb" remote="github">
     <linkfile dest="setup-environment" src="../../.repo/manifests/setup-environment"/>
   </project>
   <project name="meta-qt5/meta-qt5" path="layers/meta-qt5" remote="github"/>
@@ -22,4 +21,5 @@
   <project name="git/meta-virtualization" path="layers/meta-virtualization" remote="yocto" branch="master" revision="89a1121656aaf04966b79756c6967f7a5ada02d5"/>
   <project name="ndechesne/meta-qcom" path="layers/meta-qcom" remote="github" branch="master" revision="de0e9d58693f45809040bd5e341322cfc2e29685"/>
   <project name="OSSystems/meta-browser" path="layers/meta-browser" remote="github" branch="master" revision="26d50665e2f7223c5f4ad7481a8d2431e7cb55fb" />
+  <project name="git/meta-ti" path="layers/meta-ti" remote="yocto" branch="master" revision="4bddfabce94802936cf660a729b26bfa3fdc166f"/>
 </manifest>
