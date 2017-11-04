@@ -7,19 +7,19 @@
   <remote fetch="http://git.shr-project.org" name="shr"/>
   <remote fetch="http://git.yoctoproject.org" name="yocto"/>
   
-  <default revision="rocko" sync-j="1"/>
+  <default revision="rocko" sync-j="4"/>
   
   <project name="96boards/meta-96boards" path="layers/meta-96boards" remote="github"/>
   <project name="96boards/meta-rpb" path="layers/meta-rpb" remote="github">
     <linkfile dest="setup-environment" src="../../.repo/manifests/setup-environment"/>
   </project>
+  <project name="OSSystems/meta-browser" path="layers/meta-browser" remote="github" revision="26d50665e2f7223c5f4ad7481a8d2431e7cb55fb"/>
+  <project name="git/meta-ti" path="layers/meta-ti" remote="yocto" revision="78326e7baa308945d62a0293758df6542a875d8b"/>
+  <project name="git/meta-virtualization" path="layers/meta-virtualization" remote="yocto"/>
   <project name="meta-qt5/meta-qt5" path="layers/meta-qt5" remote="github"/>
+  <project name="ndechesne/meta-qcom" path="layers/meta-qcom" remote="github" revision="281fbd4a16779ef810eea3e730da9a9fae10f395"/>
   <project name="openembedded/bitbake" path="bitbake" remote="github" revision="1.36"/>
   <project name="openembedded/meta-linaro" path="layers/meta-linaro" remote="linaro"/>
   <project name="openembedded/meta-openembedded" path="layers/meta-openembedded" remote="github"/>
   <project name="openembedded/openembedded-core" path="layers/openembedded-core" remote="github"/>
-  <project name="git/meta-virtualization" path="layers/meta-virtualization" remote="yocto"/>
-  <project name="ndechesne/meta-qcom" path="layers/meta-qcom" remote="github" branch="master" revision="281fbd4a16779ef810eea3e730da9a9fae10f395"/>
-  <project name="OSSystems/meta-browser" path="layers/meta-browser" remote="github" branch="master" revision="26d50665e2f7223c5f4ad7481a8d2431e7cb55fb"/>
-  <project name="git/meta-ti" path="layers/meta-ti" remote="yocto" branch="master" revision="78326e7baa308945d62a0293758df6542a875d8b"/>
 </manifest>
