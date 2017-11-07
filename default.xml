@@ -17,7 +17,7 @@
   <project name="git/meta-ti" path="layers/meta-ti" remote="yocto" revision="78326e7baa308945d62a0293758df6542a875d8b"/>
   <project name="git/meta-virtualization" path="layers/meta-virtualization" remote="yocto"/>
   <project name="meta-qt5/meta-qt5" path="layers/meta-qt5" remote="github"/>
-  <project name="ndechesne/meta-qcom" path="layers/meta-qcom" remote="github" revision="281fbd4a16779ef810eea3e730da9a9fae10f395"/>
+  <project name="ndechesne/meta-qcom" path="layers/meta-qcom" remote="github"/>
   <project name="openembedded/bitbake" path="bitbake" remote="github" revision="1.36"/>
   <project name="openembedded/meta-linaro" path="layers/meta-linaro" remote="linaro"/>
   <project name="openembedded/meta-openembedded" path="layers/meta-openembedded" remote="github"/>
