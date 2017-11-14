@@ -14,7 +14,7 @@
     <linkfile dest="setup-environment" src="../../.repo/manifests/setup-environment"/>
   </project>
   <project name="OSSystems/meta-browser" path="layers/meta-browser" remote="github" revision="26d50665e2f7223c5f4ad7481a8d2431e7cb55fb"/>
-  <project name="cpriouzeau/meta-st-cannes2" path="layers/meta-st-cannes2" remote="github" revision="1c933bd2618f8d723fd704ce73f90f55d0c326ae"/>
+  <project name="cpriouzeau/meta-st-cannes2" path="layers/meta-st-cannes2" remote="github"/>
   <project name="git/meta-intel" path="layers/meta-intel" remote="yocto"/>
   <project name="git/meta-ti" path="layers/meta-ti" remote="yocto" revision="78326e7baa308945d62a0293758df6542a875d8b"/>
   <project name="git/meta-virtualization" path="layers/meta-virtualization" remote="yocto"/>
