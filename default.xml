@@ -13,6 +13,7 @@
   <project name="96boards/meta-rpb" path="layers/meta-rpb" remote="github">
     <linkfile dest="setup-environment" src="../../.repo/manifests/setup-environment"/>
   </project>
+  <project name="cpriouzeau/meta-st-cannes2" path="layers/meta-st-cannes2" remote="github"/>
   <project name="git/meta-virtualization" path="layers/meta-virtualization" remote="yocto"/>
   <project name="kraj/meta-clang" path="layers/meta-clang" remote="github"/>
   <project name="meta-qt5/meta-qt5" path="layers/meta-qt5" remote="github"/>
