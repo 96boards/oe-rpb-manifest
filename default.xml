@@ -22,6 +22,7 @@
   <project name="openembedded/meta-linaro" path="layers/meta-linaro" remote="linaro"/>
   <project name="openembedded/meta-openembedded" path="layers/meta-openembedded" remote="github"/>
   <project name="openembedded/openembedded-core" path="layers/openembedded-core" remote="github"/>
+  <project name="git/meta-intel" path="layers/meta-intel" remote="yocto"/>
   <project name="git/meta-ti" path="layers/meta-ti" remote="yocto" revision="cad0618a55da9229426b66fae0cdbb2bc2dca348" branch="master" />
   <project name="OSSystems/meta-browser" path="layers/meta-browser" remote="github" revision="3322d838f29be9a62eea8a846f0c6d4e86ccd0ae" branch="master" />
 </manifest>
