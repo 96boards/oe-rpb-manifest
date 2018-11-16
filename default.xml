@@ -7,21 +7,22 @@
   <remote fetch="http://git.shr-project.org" name="shr"/>
   <remote fetch="http://git.yoctoproject.org" name="yocto"/>
   
-  <default revision="master" sync-j="4"/>
+  <default revision="thud" sync-j="4"/>
   
   <project name="96boards/meta-96boards" path="layers/meta-96boards" remote="github"/>
   <project name="96boards/meta-rpb" path="layers/meta-rpb" remote="github"/>
-  <project name="OSSystems/meta-browser" path="layers/meta-browser" remote="github"/>
+  <project name="OSSystems/meta-browser" path="layers/meta-browser" remote="github" revision="master"/>
   <project name="git/meta-intel" path="layers/meta-intel" remote="yocto"/>
-  <project name="git/meta-ti" path="layers/meta-ti" remote="yocto">
+  <project name="git/meta-ti" path="layers/meta-ti" remote="yocto" revision="master">
     <linkfile dest="setup-environment" src="../../.repo/manifests/setup-environment"/>
   </project>
-  <project name="git/meta-virtualization" path="layers/meta-virtualization" remote="yocto"/>
-  <project name="kraj/meta-clang" path="layers/meta-clang" remote="github"/>
+  <project name="git/meta-virtualization" path="layers/meta-virtualization" remote="yocto" revision="master"/>
+  <project name="kraj/meta-clang" path="layers/meta-clang" remote="github" revision="master"/>
   <project name="meta-qt5/meta-qt5" path="layers/meta-qt5" remote="github"/>
-  <project name="meta-rust/meta-rust" path="layers/meta-rust" remote="github"/>
+  <project name="meta-rust/meta-rust" path="layers/meta-rust" remote="github" revision="master"/>
   <project name="ndechesne/meta-qcom" path="layers/meta-qcom" remote="github"/>
-  <project name="openembedded/bitbake" path="bitbake" remote="github"/>
+  <project name="openembedded/bitbake" path="bitbake" remote="github" revision="1.40"/>
+  <project name="openembedded/meta-backports" path="layers/meta-backports" remote="linaro"/>
   <project name="openembedded/meta-linaro" path="layers/meta-linaro" remote="linaro"/>
   <project name="openembedded/meta-openembedded" path="layers/meta-openembedded" remote="github"/>
   <project name="openembedded/openembedded-core" path="layers/openembedded-core" remote="github"/>
