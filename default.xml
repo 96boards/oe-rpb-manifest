@@ -6,9 +6,9 @@
   <remote fetch="git://git.openembedded.org" name="oe"/>
   <remote fetch="http://git.shr-project.org" name="shr"/>
   <remote fetch="http://git.yoctoproject.org" name="yocto"/>
-  
+
   <default revision="pyro" sync-j="4"/>
-  
+
   <project name="96boards/meta-96boards" path="layers/meta-96boards" remote="github"/>
   <project name="96boards/meta-rpb" path="layers/meta-rpb" remote="github">
     <linkfile dest="setup-environment" src="../../.repo/manifests/setup-environment"/>
@@ -17,6 +17,7 @@
   <project name="git/meta-ti" path="layers/meta-ti" remote="yocto" revision="master"/>
   <project name="git/meta-virtualization" path="layers/meta-virtualization" remote="yocto"/>
   <project name="meta-qt5/meta-qt5" path="layers/meta-qt5" remote="github"/>
+  <project name="meta-rust/meta-rust" path="layers/meta-rust" remote="github"/>
   <project name="ndechesne/meta-qcom" path="layers/meta-qcom" remote="github"/>
   <project name="openembedded/bitbake" path="bitbake" remote="github" revision="1.34"/>
   <project name="openembedded/meta-backports" path="layers/meta-backports" remote="linaro"/>
