@@ -20,6 +20,7 @@
   <project name="kraj/meta-clang" path="layers/meta-clang" remote="github"/>
   <project name="meta-qt5/meta-qt5" path="layers/meta-qt5" remote="github"/>
   <project name="meta-rust/meta-rust" path="layers/meta-rust" remote="github" revision="master"/>
+  <project name="mrchapp/meta-lkft" path="layers/meta-lkft" remote="github"/>
   <project name="ndechesne/meta-qcom" path="layers/meta-qcom" remote="github"/>
   <project name="openembedded/bitbake" path="bitbake" remote="github" revision="1.40"/>
   <project name="openembedded/meta-backports" path="layers/meta-backports" remote="linaro"/>
