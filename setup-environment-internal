@@ -242,6 +242,20 @@ ln -sf "${MANIFESTS}" "${OEROOT}"/layers/
 
 DISTRO_DIRNAME=$(echo "${DISTRO}" | sed 's#[.-]#_#g')
 
+function lkft_write_if_set() {
+    [ -n "$2" ] && echo "$1 = \"$2\"" >> conf/lkft-kernel.conf
+}
+
+KERNEL_RECIPE="${KERNEL_RECIPE:-linux-generic-mainline}"
+case "${KERNEL_RECIPE}" in
+    linux-generic-mainline|linux-generic-next)
+        KERNEL_VERSION="git"
+        ;;
+esac
+lkft_write_if_set PREFERRED_PROVIDER_virtual/kernel "${KERNEL_RECIPE}"
+[ "${KERNEL_VERSION}" = "git" -o -z "${KERNEL_VERSION}" ] || lkft_write_if_set PREFERRED_VERSION_${KERNEL_RECIPE} "${KERNEL_VERSION}+git%"
+lkft_write_if_set SRCREV_kernel_${MACHINE} "${SRCREV_kernel}"
+
 cat > conf/auto.conf <<EOF
 DISTRO ?= "${DISTRO}"
 MACHINE ?= "${MACHINE}"
@@ -344,23 +358,29 @@ fi
 
 cat <<EOF
 
-Welcome to OpenEmbedded Reference Platform Build (OE RPB)
+Welcome to OpenEmbedded Linux Kernel Functional Testing (OE LKFT) build!
+
+For more information about LKFT you can visit:
+    https://lkft.linaro.org/
 
 For more information about OpenEmbedded see their website:
     http://www.openembedded.org/
 
 Your build environemnt has been configured with:
-
     MACHINE = ${MACHINE}
     SDKMACHINE = ${SDKMACHINE}
     DISTRO = ${DISTRO}
 
+This LKFT build is prepared for:
+    KERNEL_RECIPE = ${KERNEL_RECIPE}
+    KERNEL_VERSION = ${KERNEL_VERSION}
+    SRCREV_kernel = ${SRCREV_kernel}
+
 You can now run 'bitbake <target>'
 
 Some of common targets are:
+    rpb-console-image-lkft
     rpb-console-image
-    rpb-desktop-image
-    rpb-weston-image
     core-image-base
     core-image-minimal
 
