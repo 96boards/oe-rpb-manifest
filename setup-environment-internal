@@ -264,6 +264,32 @@ SDKMACHINE ?= "${SDKMACHINE}"
 # Extra options that can be changed by the user
 INHERIT += "rm_work"
 EOF
+
+# Add job BUILD_NUMBER to output files names
+if [ -n "${BUILD_NUMBER}" ]; then
+    cat << EOF >> conf/auto.conf
+
+IMAGE_NAME_append = "-${BUILD_NUMBER}"
+KERNEL_IMAGE_BASE_NAME_append = "-${BUILD_NUMBER}"
+MODULE_IMAGE_BASE_NAME_append = "-${BUILD_NUMBER}"
+DT_IMAGE_BASE_NAME_append = "-${BUILD_NUMBER}"
+BOOT_IMAGE_BASE_NAME_append = "-${BUILD_NUMBER}"
+EOF
+fi
+
+# get build stats to make sure that we use sstate properly
+cat << EOF >> conf/auto.conf
+
+INHERIT += "buildstats buildstats-summary"
+EOF
+
+cat << EOF >> conf/auto.conf
+SERIAL_CONSOLES_remove_intel-core2-32 = "115200;ttyPCH0"
+SERIAL_CONSOLES_remove_intel-corei7-64 = "115200;ttyPCH0"
+SERIAL_CONSOLES_append_dragonboard-410c = " 115200;ttyMSM1"
+SERIAL_CONSOLES_append_hikey = " 115200;ttyAMA2"
+EOF
+
 if [ ! -e conf/site.conf ]; then
     cat > conf/site.conf <<_EOF
 
