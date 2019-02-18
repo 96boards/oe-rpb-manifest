@@ -9,21 +9,21 @@
   
   <default revision="master" sync-j="4"/>
   
-  <project name="96boards/meta-96boards" path="layers/meta-96boards" remote="github"/>
-  <project name="96boards/meta-rpb" path="layers/meta-rpb" remote="github"/>
-  <project name="agherzan/meta-raspberrypi" path="layers/meta-raspberrypi" remote="github"/>
-  <project name="OSSystems/meta-browser" path="layers/meta-browser" remote="github"/>
-  <project name="git/meta-intel" path="layers/meta-intel" remote="yocto"/>
-  <project name="git/meta-ti" path="layers/meta-ti" remote="yocto">
+  <project name="96boards/meta-96boards" path="layers/meta-96boards" remote="github" revision="528cd0b7398e6ae3059d870ecf09563f3782e0df" upstream="master"/>
+  <project name="96boards/meta-rpb" path="layers/meta-rpb" remote="github" revision="d30e71282b1b496d381faae981499e1e8413ffad" upstream="master"/>
+  <project name="OSSystems/meta-browser" path="layers/meta-browser" remote="github" revision="97876fab5c497be0c733d26dcb0d5c16477f24e8" upstream="master"/>
+  <project name="agherzan/meta-raspberrypi" path="layers/meta-raspberrypi" remote="github" revision="592b4779ac342742af7536333a5ebd2205ff2b1f" upstream="master"/>
+  <project name="git/meta-intel" path="layers/meta-intel" remote="yocto" revision="29e4db5bf484f18e41bc9123161b1c069e60a128" upstream="master"/>
+  <project name="git/meta-ti" path="layers/meta-ti" remote="yocto" revision="8c44d9161ce218af78972ca1ce356ac9aa840e1e" upstream="master">
     <linkfile dest="setup-environment" src="../../.repo/manifests/setup-environment"/>
   </project>
-  <project name="git/meta-virtualization" path="layers/meta-virtualization" remote="yocto"/>
-  <project name="kraj/meta-clang" path="layers/meta-clang" remote="github"/>
-  <project name="meta-qt5/meta-qt5" path="layers/meta-qt5" remote="github"/>
-  <project name="meta-rust/meta-rust" path="layers/meta-rust" remote="github"/>
-  <project name="ndechesne/meta-qcom" path="layers/meta-qcom" remote="github"/>
-  <project name="openembedded/bitbake" path="bitbake" remote="github"/>
-  <project name="openembedded/meta-linaro" path="layers/meta-linaro" remote="linaro"/>
-  <project name="openembedded/meta-openembedded" path="layers/meta-openembedded" remote="github"/>
-  <project name="openembedded/openembedded-core" path="layers/openembedded-core" remote="github"/>
+  <project name="git/meta-virtualization" path="layers/meta-virtualization" remote="yocto" revision="72a920412f0eead836cd2128144988152534882f" upstream="master"/>
+  <project name="kraj/meta-clang" path="layers/meta-clang" remote="github" revision="24afd2f5b7aee939300f4a20bf280c73bbc34b6e" upstream="master"/>
+  <project name="meta-qt5/meta-qt5" path="layers/meta-qt5" remote="github" revision="82abc2bb38e6db10b469975c1f50be1bc1c078e8" upstream="master"/>
+  <project name="meta-rust/meta-rust" path="layers/meta-rust" remote="github" revision="8b7d6201b6b490203c38bea3d1fa42953c66dc58" upstream="master"/>
+  <project name="ndechesne/meta-qcom" path="layers/meta-qcom" remote="github" revision="f708a3a9b6a61cd4d83a32dec4532453a127b54a" upstream="master"/>
+  <project name="openembedded/bitbake" path="bitbake" remote="github" revision="3bba0dbd524cf72176a765957adff544ae5c255a" upstream="master"/>
+  <project name="openembedded/meta-linaro" path="layers/meta-linaro" remote="linaro" revision="a6db64d7e165f8850877721df43d57600f3761d7" upstream="master"/>
+  <project name="openembedded/meta-openembedded" path="layers/meta-openembedded" remote="github" revision="d30d26c2796dc45ba274803815421e6f4aca9eb5" upstream="master"/>
+  <project name="openembedded/openembedded-core" path="layers/openembedded-core" remote="github" revision="430bd28093fb743ba3bd032e11e40b4dd8e5bd1f" upstream="master"/>
 </manifest>
