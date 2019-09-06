@@ -4,7 +4,6 @@ The Linaro OpenEmbedded RPB project provides a reference implementation of an Op
 
 ## Maintainers
 
-* Koen Kooi <mailto:koen.kooi@linaro.org>
 * Nicolas Dechesne <nicolas.dechesne@linaro.org>
 * Fathi Boudra <mailto:fathi.boudra@linaro.org>
 
