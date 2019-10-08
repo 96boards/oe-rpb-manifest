@@ -349,7 +349,7 @@ Welcome to OpenEmbedded Reference Platform Build (OE RPB)
 For more information about OpenEmbedded see their website:
     http://www.openembedded.org/
 
-Your build environemnt has been configured with:
+Your build environment has been configured with:
 
     MACHINE = ${MACHINE}
     SDKMACHINE = ${SDKMACHINE}
