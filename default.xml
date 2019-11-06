@@ -16,6 +16,7 @@
   </project>
   <project name="OSSystems/meta-browser" path="layers/meta-browser" remote="github" revision="26d50665e2f7223c5f4ad7481a8d2431e7cb55fb"/>
   <project name="cpriouzeau/meta-st-cannes2" path="layers/meta-st-cannes2" remote="github"/>
+  <project name="git/meta-freescale" path="layers/meta-freescale" remote="yocto"/>
   <project name="git/meta-intel" path="layers/meta-intel" remote="yocto"/>
   <project name="git/meta-ti" path="layers/meta-ti" remote="yocto"/>
   <project name="git/meta-virtualization" path="layers/meta-virtualization" remote="yocto"/>
