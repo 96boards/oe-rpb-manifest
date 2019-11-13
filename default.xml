@@ -19,7 +19,7 @@
   </project>
   <project name="git/meta-virtualization" path="layers/meta-virtualization" remote="yocto"/>
   <project name="git/meta-selinux" path="layers/meta-selinux" remote="yocto"/>
-  <project name="kraj/meta-clang" path="layers/meta-clang" remote="github" revision="master"/>
+  <project name="kraj/meta-clang" path="layers/meta-clang" remote="github"/>
   <project name="meta-qt5/meta-qt5" path="layers/meta-qt5" remote="github"/>
   <project name="meta-rust/meta-rust" path="layers/meta-rust" remote="github" revision="master"/>
   <project name="ndechesne/meta-qcom" path="layers/meta-qcom" remote="github"/>
