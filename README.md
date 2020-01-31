@@ -39,7 +39,7 @@ In this wiki, we assume that the reader is familiar with basic concepts of OpenE
 | meta-oe | This layer houses many useful, but sometimes unmaintained recipes. Since the reduction in recipes to the core, meta-oe was created for everything else. There are currently approximately 650 recipes in this layer. |
 | meta-browser | This layer holds the recipes for Firefox and Chromium. Both recipes require a lot of maintenance, because of this a seperate layer was created. |
 | meta-qt5 | This is a cross-platform toolkit. |
-| meta-linaro | This layer is used to get the Linaro toolchain. |
+| meta-arm | This layer is used to get the ARM toolchain. |
 | meta-backports | Backport newer versions into the build which were not part of the release. |
 | meta-96boards | This support layer is managed by Linaro and intended for boards that do not have their own board support layer. Currently used for the HiKey Consumer Edition board, and eventually the Bubblegum-96 board. If a vendor does not support their own layer, it can be added to this layer. |
 | meta-qcom | This is the board support layer for Qualcomm boards. Currently supports IFC6410 and the DragonBoard 410c. |
