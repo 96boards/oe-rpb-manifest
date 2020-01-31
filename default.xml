@@ -26,4 +26,5 @@
   <project name="openembedded/meta-openembedded" path="layers/meta-openembedded" remote="github"/>
   <project name="openembedded/openembedded-core" path="layers/openembedded-core" remote="github"/>
   <project name="meta-python2" path="layers/meta-python2" remote="oe"/>
+  <project name="git/meta-arm" path="layers/meta-arm" remote="yocto" revision="master"/>
 </manifest>
