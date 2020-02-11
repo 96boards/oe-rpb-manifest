@@ -14,7 +14,7 @@
   <project name="OSSystems/meta-browser" path="layers/meta-browser" remote="github" revision="master"/>
   <project name="git/meta-intel" path="layers/meta-intel" remote="yocto"/>
   <project name="git/meta-ti" path="layers/meta-ti" remote="yocto" revision="master"/>
-  <project name="96boards/oe-rpb-manifest" path="conf" remote="github">
+  <project name="96boards/oe-rpb-manifest" path="conf" remote="github" revision="lkft/thud">
     <linkfile dest="setup-environment" src="setup-environment-internal"/>
   </project>
   <project name="git/meta-virtualization" path="layers/meta-virtualization" remote="yocto"/>
