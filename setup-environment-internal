@@ -140,7 +140,7 @@ if [ -z "${SDKMACHINE}" ]; then
     SDKMACHINE='x86_64'
 fi
 
-MANIFESTS="${OEROOT}"/.repo/manifests
+MANIFESTS="${OEROOT}"/conf
 
 # we can be called with only 1 parameter max, <build> folder, or default to build-$distro
 BUILDDIR=build-$DISTRO
