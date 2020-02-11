@@ -11,7 +11,7 @@
   
   <project name="96boards/meta-96boards" path="layers/meta-96boards" remote="github"/>
   <project name="96boards/meta-rpb" path="layers/meta-rpb" remote="github"/>
-  <project name="96boards/oe-rpb-manifest" path="conf" remote="github">
+  <project name="96boards/oe-rpb-manifest" path="conf" remote="github" revision="lkft/rocko">
     <linkfile dest="setup-environment" src="setup-environment-internal"/>
   </project>
   <project name="OSSystems/meta-browser" path="layers/meta-browser" remote="github" revision="26d50665e2f7223c5f4ad7481a8d2431e7cb55fb"/>
