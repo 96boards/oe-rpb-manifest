@@ -60,7 +60,7 @@ chmod a+x ~/bin/repo
 ```
 Run repo init to bring down the latest version of Repo with all its most recent bug fixes. You must specify a URL for the manifest, which specifies where the various repositories included in the Android source will be placed within your working directory. To check out the current branch, specify it with -b:
 ```
-repo init -u https://github.com/96boards/oe-rpb-manifest.git -b master
+repo init -u https://github.com/roystonvasey/oe-rpb-manifest.git -b zeus
 ```
 When prompted, configure Repo with your real name and email address.
 
@@ -133,7 +133,7 @@ To build a console image, you can run:
     $ bitbake rpb-console-image
 
 At the end of the build, your build artifacts will be found under `tmp-eglibc/deploy/images/MACHINE/`. The two main build artifacts you will use to update your board are:
-* `rpb-console-image-<MACHINE>.ext4.gz` and
+* `cnx-console-image-<MACHINE>.ext4.gz` and
 * `boot-<MACHINE>.img`
 
 ## Build a simple X11 image
