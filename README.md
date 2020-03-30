@@ -44,6 +44,7 @@ In this wiki, we assume that the reader is familiar with basic concepts of OpenE
 | meta-96boards | This support layer is managed by Linaro and intended for boards that do not have their own board support layer. Currently used for the HiKey Consumer Edition board, and eventually the Bubblegum-96 board. If a vendor does not support their own layer, it can be added to this layer. |
 | meta-qcom | This is the board support layer for Qualcomm boards. Currently supports IFC6410 and the DragonBoard 410c. |
 | meta-st-cannes2 | This is the board support layer for ST B2260 board. |
+| meta-python2 | This layer provides support of Python 2.x in recent OE versions after EOL. |
 
 ## oe-rpb-manifest repository
 
