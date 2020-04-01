@@ -29,4 +29,5 @@
   <project name="openembedded/meta-openembedded" path="layers/meta-openembedded" remote="github"/>
   <project name="openembedded/openembedded-core" path="layers/openembedded-core" remote="github"/>
   <project name="connexionz/meta-connexionz" path="layers/meta-connexionz" remote="github" revision="master"/>
+  <project name="akuster/meta-odroid" path="layers/meta-odroid" remote="github" revision="master"/>
 </manifest>
