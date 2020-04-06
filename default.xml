@@ -25,7 +25,7 @@
   <project name="ndechesne/meta-qcom" path="layers/meta-qcom" remote="github"/>
   <project name="openembedded/bitbake" path="bitbake" remote="github" revision="1.44"/>
   <project name="openembedded/meta-backports" path="layers/meta-backports" remote="linaro"/>
-  <project name="openembedded/meta-linaro" path="layers/meta-linaro" remote="linaro" revision="master"/>
+  <project name="openembedded/meta-linaro" path="layers/meta-linaro" remote="linaro"/>
   <project name="openembedded/meta-openembedded" path="layers/meta-openembedded" remote="github"/>
   <project name="openembedded/openembedded-core" path="layers/openembedded-core" remote="github"/>
 </manifest>
