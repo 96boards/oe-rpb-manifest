@@ -12,7 +12,7 @@
   <project name="96boards/meta-96boards" path="layers/meta-96boards" remote="github"/>
   <project name="96boards/meta-rpb" path="layers/meta-rpb" remote="github"/>
   <project name="kraj/meta-clang" path="layers/meta-clang" remote="github"/>
-  <project name="OSSystems/meta-browser" path="layers/meta-browser" remote="github" revision="master"/>
+  <project name="OSSystems/meta-browser" path="layers/meta-browser" remote="github"/>
   <project name="git/meta-virtualization" path="layers/meta-virtualization" remote="yocto"/>
   <project name="96boards/oe-rpb-manifest" path="conf" remote="github" revision="qcom/warrior">
     <linkfile dest="setup-environment" src="setup-environment-internal"/>
