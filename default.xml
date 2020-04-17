@@ -13,7 +13,7 @@
   <project name="96boards/meta-rpb" path="layers/meta-rpb" remote="github"/>
   <project name="Freescale/meta-freescale" path="layers/meta-freescale" remote="github"/>
   <project name="git/meta-intel" path="layers/meta-intel" remote="yocto"/>
-  <project name="git/meta-ti" path="layers/meta-ti" remote="yocto" revision="master"/>
+  <project name="git/meta-ti" path="layers/meta-ti" remote="yocto"/>
   <project name="96boards/oe-rpb-manifest" path="conf" remote="github">
     <linkfile dest="setup-environment" src="setup-environment-internal"/>
   </project>
