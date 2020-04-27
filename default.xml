@@ -13,7 +13,7 @@
   <project name="96boards/meta-rpb" path="layers/meta-rpb" remote="github"/>
   <project name="OSSystems/meta-browser" path="layers/meta-browser" remote="github" revision="master"/>
   <project name="git/meta-virtualization" path="layers/meta-virtualization" remote="yocto"/>
-  <project name="96boards/oe-rpb-manifest" path="conf" remote="github" revision="qcom/master">
+  <project name="96boards/oe-rpb-manifest" path="conf" remote="github" revision="qcom/dunfell">
     <linkfile dest="setup-environment" src="setup-environment-internal"/>
   </project>
   <project name="git/meta-selinux" path="layers/meta-selinux" remote="yocto" revision="master"/>
