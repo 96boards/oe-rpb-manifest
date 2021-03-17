@@ -60,8 +60,8 @@ if [ $# -gt 1 ]; then
     return 1
 fi
 # create a common list of "<machine>(<layer>)", sorted by <machine>
-# Blacklist OE-core and meta-linaro, we only want 96boards + vendor layers
-MACHLAYERS=$(find layers -print | grep "meta-qcom/conf/machine/.*\.conf" | sed -e 's/\.conf//g' -e 's/layers\///' | awk -F'/conf/machine/' '{print $NF "(" $1 ")"}' | LANG=C sort)
+# Restrict to meta-qcom machines, qemuarm 32 and 64
+MACHLAYERS=$(find layers -print | grep "qemuarm.conf\|qemuarm64.conf\|meta-qcom/conf/machine/.*\.conf" | sed -e 's/\.conf//g' -e 's/layers\///' | awk -F'/conf/machine/' '{print $NF "(" $1 ")"}' | LANG=C sort)
 
 if [ -z "${MACHINE}" ]; then
     # whiptail
