@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote fetch="https://bitbucket.org" name="bitbucket"/>
+  <remote fetch="https://github.com" name="github"/>
+  <remote fetch="http://git.linaro.org" name="linaro"/>
+  <remote fetch="git://git.openembedded.org" name="oe"/>
+  <remote fetch="http://git.shr-project.org" name="shr"/>
+  <remote fetch="http://git.yoctoproject.org" name="yocto"/>
+  
+  <default revision="zeus" sync-j="4"/>
+  
+  <project name="96boards/meta-96boards" path="layers/meta-96boards" remote="github" revision="a96a1dd635f32d8eb1d644db51c0e0d8297060d8" upstream="zeus"/>
+  <project name="96boards/meta-rpb" path="layers/meta-rpb" remote="github" revision="c54331aacc7cd1e40b5e32fd1a7b3484904fbcb0" upstream="zeus"/>
+  <project name="96boards/oe-rpb-manifest" path="conf" remote="github" revision="84bbc2c6c08a0e538013a5a6dd642dedc4ce0b37" upstream="qcom/zeus">
+    <linkfile dest="setup-environment" src="setup-environment-internal"/>
+  </project>
+  <project name="OSSystems/meta-browser" path="layers/meta-browser" remote="github" revision="1697014a05967ed54b294f3c4b5621df494d6551" upstream="master"/>
+  <project name="git/meta-selinux" path="layers/meta-selinux" remote="yocto" revision="44d760413920ba440439b8bc7c2a71ca26cd7a2d" upstream="zeus"/>
+  <project name="git/meta-virtualization" path="layers/meta-virtualization" remote="yocto" revision="3ab5647d7cfa9d46a155be80934e0bc8a44dbf4b" upstream="zeus"/>
+  <project name="kraj/meta-clang" path="layers/meta-clang" remote="github" revision="0c393398a91713a108f319ac75337c02b7ebeaa7" upstream="zeus"/>
+  <project name="meta-qt5/meta-qt5" path="layers/meta-qt5" remote="github" revision="a582fd4c810529e9af0c81700407b1955d1391d2" upstream="zeus"/>
+  <project name="meta-rust/meta-rust" path="layers/meta-rust" remote="github" revision="d8d77be1292064a02adcb5e72e293604b704f69b" upstream="master"/>
+  <project name="ndechesne/meta-qcom" path="layers/meta-qcom" remote="github" revision="4e627df9717aeaa2a5045d97537d8c3ae11aa9e7" upstream="zeus"/>
+  <project name="openembedded/bitbake" path="bitbake" remote="github" revision="95687be83e716220eb3893b67428f97fd59fc2c5" upstream="1.44"/>
+  <project name="openembedded/meta-backports" path="layers/meta-backports" remote="linaro" revision="637874d5529667225f4f84c171cb4c49cf67a791" upstream="zeus"/>
+  <project name="openembedded/meta-linaro" path="layers/meta-linaro" remote="linaro" revision="42898de8fedecfa02d193cf9561a2aa754c625d1" upstream="master"/>
+  <project name="openembedded/meta-openembedded" path="layers/meta-openembedded" remote="github" revision="e855ecc6d35677e79780adc57b2552213c995731" upstream="zeus"/>
+  <project name="openembedded/openembedded-core" path="layers/openembedded-core" remote="github" revision="799b3cd1016bd765f4452a5e81ea5613c9089bce" upstream="zeus"/>
+</manifest>
