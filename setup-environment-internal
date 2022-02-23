@@ -157,7 +157,7 @@ export PATH="${OEROOT}"/layers/openembedded-core/scripts:"${OEROOT}"/bitbake/bin
 export PATH=$(echo "$PATH" | awk -F: '{for (i=1;i<=NF;i++) { if ( !x[$i]++ ) printf("%s:",$i); }}' | sed 's/:$//')
 # Make sure Bitbake doesn't filter out the following variables from our
 # environment.
-export BB_ENV_EXTRAWHITE="MACHINE DISTRO TCLIBC TCMODE GIT_PROXY_COMMAND http_proxy ftp_proxy https_proxy all_proxy ALL_PROXY no_proxy SSH_AGENT_PID SSH_AUTH_SOCK BB_SRCREV_POLICY SDKMACHINE BB_NUMBER_THREADS"
+export BB_ENV_PASSTHROUGH_ADDITIONS="MACHINE DISTRO TCLIBC TCMODE GIT_PROXY_COMMAND http_proxy ftp_proxy https_proxy all_proxy ALL_PROXY no_proxy SSH_AGENT_PID SSH_AUTH_SOCK BB_SRCREV_POLICY SDKMACHINE BB_NUMBER_THREADS"
 
 # Helper command for building images for mixed 32bit/64bit
 # ARM builds. The command allow to specify a secondary MACHINE
