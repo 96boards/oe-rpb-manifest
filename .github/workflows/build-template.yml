@@ -1,5 +1,15 @@
 on:
   workflow_call:
+    inputs:
+      local_repo:
+        required: false
+        type: string
+      local_ref:
+        required: false
+        type: string
+      branch:
+        required: true
+        type: string
     secrets:
       TUXSUITE_TOKEN:
         required: true
@@ -35,13 +45,13 @@ jobs:
         MACHINE: ${{ matrix.machine }}
         DISTRO: ${{ matrix.distro }}
         IMAGES: ${{ matrix.images }}
-        PR: ${{ github.event.pull_request.number }}
+        BRANCH: ${{ inputs.branch }}
       run: |
         cat << EOF > tux.json
         {
           "sources": {
             "repo": {
-              "branch": "qcom/$GITHUB_BASE_REF",
+              "branch": "$BRANCH",
               "manifest": "default.xml",
               "url": "$MANIFEST_URL"
               }
@@ -59,15 +69,21 @@ jobs:
           ]
         }
         EOF
-
+    - name: Setup local_manifest
+      if: inputs.local_repo && inputs.local_ref
+      run: |
         cat << EOF > local_manifest.xml
         <?xml version="1.0" encoding="UTF-8"?>
         <manifest>
-        <extend-project name="$GITHUB_REPOSITORY" revision="refs/pull/$PR/head" />
+        <extend-project name="${{ inputs.local_repo }}" revision="${{ inputs.local_ref }}" />
         </manifest>
         EOF
     - name: Run build
       run: |
-        tuxsuite bake submit tux.json -l local_manifest.xml
+        if [ -f local_manifest.xml ]; then
+            tuxsuite bake submit tux.json -l local_manifest.xml
+        else
+            tuxsuite bake submit tux.json
+        fi
       env:
         TUXSUITE_TOKEN: ${{ secrets.TUXSUITE_TOKEN }}
