@@ -17,21 +17,16 @@ on:
 env:
   MANIFEST_URL: https://github.com/96boards/oe-rpb-manifest.git
   HOST: ubuntu-20.04
+  MACHINES: dragonboard-410c dragonboard-845c
+  DISTRO: rpb rpb-wayland
+  IMAGES: rpb-console-image rpb-console-image-test
+  IMAGES_rpb: rpb-desktop-image rpb-desktop-image-test
+  IMAGES_rpb_wayland: rpb-weston-image rpb-weston-image-test
 
 jobs:
-  premerge-build-test:
-    name: ${{ matrix.distro }}/${{ matrix.machine }}
+  build:
+    name: ${{github.event_name}} - ${{github.ref}}
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        machine: [dragonboard-410c, dragonboard-845c]
-        distro: [rpb, rpb-wayland]
-        include:
-          - distro: rpb
-            images: rpb-console-image rpb-console-image-test rpb-desktop-image rpb-desktop-image-test
-          - distro: rpb-wayland
-            images: rpb-console-image rpb-console-image-test rpb-weston-image rpb-weston-image-test
     steps:
     - name: Set up Python
       uses: actions/setup-python@v3
@@ -40,35 +35,51 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade tuxsuite
-    - name: Setup tux definition
-      env:
-        MACHINE: ${{ matrix.machine }}
-        DISTRO: ${{ matrix.distro }}
-        IMAGES: ${{ matrix.images }}
-        BRANCH: ${{ inputs.branch }}
+    - name: Setup tux plan
       run: |
-        cat << EOF > tux.json
-        {
-          "sources": {
-            "repo": {
-              "branch": "$BRANCH",
-              "manifest": "default.xml",
-              "url": "$MANIFEST_URL"
-              }
-          },
-          "container": "$HOST",
-          "envsetup": "setup-environment",
-          "distro": "$DISTRO",
-          "machine": "$MACHINE",
-          "target": "$IMAGES",
-          "artifacts": [
-            "\$DEPLOY_DIR"
-          ],
-          "local_conf": [
-            "INHERIT += 'buildstats buildstats-summary'"
-          ]
-        }
+        cat << EOF > plan.yaml
+        name: CI for ${{github.repository}}
+        description: ${{github.workflow}} - ${{github.ref}}
+        version: 1
+
+        common: &commondata
+          container: $HOST
+          envsetup: setup-environment
+          sources:
+            repo:
+              branch: ${{inputs.branch}}
+              manifest: default.xml
+              url: $MANIFEST_URL
+          local_conf:
+            - INHERIT += 'buildstats buildstats-summary'
+            - INHERIT:remove = 'rm_work'
+          artifacts:
+            - \$DEPLOY_DIR
+
+        rpb: &rpb
+          distro: rpb
+          target: ${IMAGES} ${IMAGES_rpb}
+
+        rpb-wayland: &rpb-wayland
+          distro: rpb-wayland
+          target: ${IMAGES} ${IMAGES_rpb_wayland}
+
+        jobs:
         EOF
+
+        for distro in ${DISTRO}; do
+        cat << EOF >> plan.yaml
+        - name: ${distro}
+          bakes:
+        EOF
+        for machine in $MACHINES; do
+        cat << EOF >> plan.yaml
+            - { <<: [*commondata, *${distro}], machine: ${machine}, name: ${machine}-${distro} }
+        EOF
+        done
+        done
+        echo "Ready to submit this Tux Plan:"
+        cat plan.yaml
     - name: Setup local_manifest
       if: inputs.local_repo && inputs.local_ref
       run: |
@@ -81,9 +92,9 @@ jobs:
     - name: Run build
       run: |
         if [ -f local_manifest.xml ]; then
-            tuxsuite bake submit tux.json -l local_manifest.xml
+            tuxsuite plan plan.yaml -l local_manifest.xml
         else
-            tuxsuite bake submit tux.json
+            tuxsuite plan plan.yaml
         fi
       env:
         TUXSUITE_TOKEN: ${{ secrets.TUXSUITE_TOKEN }}
