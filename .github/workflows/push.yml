@@ -1,0 +1,13 @@
+name: Push build
+
+on:
+  push:
+    branches:
+      - qcom/master
+
+jobs:
+  build:
+    uses: ./.github/workflows/build-template.yml
+    with:
+      branch: ${{github.ref_name}}
+    secrets: inherit
