@@ -11,12 +11,6 @@ jobs:
       branch: qcom/master
     secrets: inherit
 
-  kirkstone:
-    uses: 96boards/oe-rpb-manifest/.github/workflows/build-template.yml@qcom/master
-    with:
-      branch: qcom/kirkstone
-    secrets: inherit
-
   dunfell:
     uses: 96boards/oe-rpb-manifest/.github/workflows/build-template.yml@qcom/master
     with:
