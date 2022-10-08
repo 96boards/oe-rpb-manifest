@@ -7,7 +7,7 @@ jobs:
   build:
     uses: ./.github/workflows/build-template.yml
     with:
-      branch: ${{github.ref}}
+      branch: refs/pull/${{github.event.pull_request.number}}/head
       local_repo: ${{github.repository}}
-      local_ref: ${{github.ref}}
+      local_ref: refs/pull/${{github.event.pull_request.number}}/head
     secrets: inherit
