@@ -1,0 +1,13 @@
+name: PR build
+
+on:
+  pull_request_target:
+
+jobs:
+  build:
+    uses: ./.github/workflows/build-template.yml
+    with:
+      branch: ${{github.ref}}
+      local_repo: ${{github.repository}}
+      local_ref: ${{github.ref}}
+    secrets: inherit
