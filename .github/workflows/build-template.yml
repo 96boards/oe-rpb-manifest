@@ -34,7 +34,7 @@ jobs:
         python-version: "3.x"
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade tuxsuite==0.50.2
+        python -m pip install --upgrade tuxsuite
     - name: Setup tux plan
       run: |
         cat << EOF > plan.yaml
