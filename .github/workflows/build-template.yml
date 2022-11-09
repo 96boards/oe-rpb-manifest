@@ -53,8 +53,7 @@ jobs:
           local_conf:
             - INHERIT += 'buildstats buildstats-summary'
             - INHERIT:remove = 'rm_work'
-          artifacts:
-            - \$DEPLOY_DIR
+          artifacts: []
 
         rpb: &rpb
           distro: rpb
