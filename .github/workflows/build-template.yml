@@ -17,7 +17,7 @@ on:
 env:
   MANIFEST_URL: https://github.com/96boards/oe-rpb-manifest.git
   HOST: ubuntu-20.04
-  MACHINES: dragonboard-410c dragonboard-845c
+  MACHINES: dragonboard-410c dragonboard-845c qrb5165-rb5 qcom-armv8a
   DISTRO: rpb rpb-wayland
   IMAGES: rpb-console-image rpb-console-image-test
   IMAGES_rpb: rpb-desktop-image rpb-desktop-image-test
