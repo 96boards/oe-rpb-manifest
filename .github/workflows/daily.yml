@@ -8,10 +8,16 @@ jobs:
   master:
     uses: 96boards/oe-rpb-manifest/.github/workflows/build-template.yml@qcom/master
     with:
+      branch: master
+    secrets: inherit
+
+  qcom-master:
+    uses: 96boards/oe-rpb-manifest/.github/workflows/build-template.yml@qcom/master
+    with:
       branch: qcom/master
     secrets: inherit
 
-  dunfell:
+  qcom-dunfell:
     uses: 96boards/oe-rpb-manifest/.github/workflows/build-template.yml@qcom/master
     with:
       branch: qcom/dunfell
