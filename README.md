@@ -125,7 +125,7 @@ To run the setup script:
 
 And follow the instructions. If you already know the value for MACHINE and DISTRO, it is possible to set them as environment variables, e.g. 
 
-    $ MACHINE=dragonboard-410c DISTRO=rpb source setup-environment
+    $ MACHINE=qcom-armv8a DISTRO=rpb source setup-environment
 
 ## Build a minimal, console-only image
 
