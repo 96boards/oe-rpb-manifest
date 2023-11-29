@@ -40,9 +40,9 @@ Setup Environment
 -----------------
 
 MACHINE values can be:
-* dragonboard-410c
-* dragonboard-820c
-* ...
+* qcom-armv8a
+* qcom-armv7a
+* qcom-armv7a-modem
 
 DISTRO values can be:
 * rpb
@@ -52,7 +52,7 @@ DISTRO values can be:
 . setup-environment
 MACHINE=<machine> DISTRO=<distro> bitbake <image>
 ```
-e.g. MACHINE=dragonboard-410c DISTRO=rpb bitbake core-image-minimal
+e.g. MACHINE=qcom-armv8a DISTRO=rpb bitbake core-image-minimal
 
 Creating a local topic branch
 -----------------------------
