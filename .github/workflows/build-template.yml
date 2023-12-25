@@ -53,6 +53,7 @@ jobs:
           local_conf:
             - INHERIT += 'buildstats buildstats-summary'
             - INHERIT:remove = 'rm_work'
+            - CONNECTIVITY_CHECK_URIS = "https://www.google.com/"
           artifacts: []
 
         rpb: &rpb
