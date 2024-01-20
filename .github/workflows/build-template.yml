@@ -16,7 +16,7 @@ on:
 
 env:
   MANIFEST_URL: https://github.com/96boards/oe-rpb-manifest.git
-  HOST: ubuntu-20.04
+  HOST: debian-bookworm
   MACHINES: qcom-armv8a qcom-armv7a
   DISTRO: rpb rpb-wayland
   IMAGES: rpb-console-image rpb-console-image-test
