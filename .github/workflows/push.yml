@@ -3,11 +3,11 @@ name: Push build
 on:
   push:
     branches:
-      - qcom/master
+      - qcom/scarthgap
 
 jobs:
   build:
-    uses: ./.github/workflows/build-template.yml
+    uses: 96boards/oe-rpb-manifest/.github/workflows/build-template.yml@qcom/master
     with:
       branch: ${{github.ref_name}}
     secrets: inherit

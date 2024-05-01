@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-    uses: ./.github/workflows/build-template.yml
+    uses: 96boards/oe-rpb-manifest/.github/workflows/build-template.yml@qcom/master
     with:
       branch: refs/pull/${{github.event.pull_request.number}}/head
       local_repo: ${{github.repository}}
