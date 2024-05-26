@@ -9,7 +9,7 @@
   
   <default revision="scarthgap" sync-j="4"/>
   
-  <project name="96boards/meta-rpb" path="layers/meta-rpb" remote="github" revision="master"/>
+  <project name="96boards/meta-rpb" path="layers/meta-rpb" remote="github"/>
   <project name="96boards/oe-rpb-manifest" path="conf" remote="github" revision="qcom/scarthgap">
     <linkfile dest="setup-environment" src="setup-environment-internal"/>
   </project>
@@ -17,7 +17,7 @@
   <project name="git/meta-selinux" path="layers/meta-selinux" remote="yocto"/>
   <project name="git/meta-virtualization" path="layers/meta-virtualization" remote="yocto"/>
   <project name="kraj/meta-clang" path="layers/meta-clang" remote="github"/>
-  <project name="Linaro/meta-qcom" path="layers/meta-qcom" remote="github" revision="master"/>
+  <project name="Linaro/meta-qcom" path="layers/meta-qcom" remote="github"/>
   <project name="openembedded/bitbake" path="bitbake" remote="github" revision="2.8"/>
   <project name="openembedded/meta-openembedded" path="layers/meta-openembedded" remote="github"/>
   <project name="openembedded/openembedded-core" path="layers/openembedded-core" remote="github"/>
